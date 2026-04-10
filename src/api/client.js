@@ -3,7 +3,13 @@ const API_BASE_URL = 'http://bvrithcloud.com';
 
 export async function get(endpoint) {
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`);
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-student-id': '23WH1A0521',
+        }
+    });
     if (!response.ok) {
       throw new Error(`GET request failed: ${response.statusText}`);
     }
@@ -18,6 +24,10 @@ export async function del(endpoint) {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-student-id': '23WH1A0521',
+        }
     });
     if (!response.ok) {
       throw new Error(`DELETE request failed: ${response.statusText}`);
